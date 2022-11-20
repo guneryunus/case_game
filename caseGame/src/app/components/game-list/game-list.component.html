@@ -1,0 +1,19 @@
+<div class="contentWrapper">
+    <div class="contentTitle">Game List</div>
+    <div class="contentInputWrapper">
+        <div class="contentFilter">
+            <input type="text" placeholder="search" />
+        </div>
+        <div class="contentBtn" [routerLink]="['game-creation']">new game</div>
+    </div>
+    <div *ngFor="let game of games.data" class="contentCard">
+        <img class="cardImg" :src="game.img" alt="img1">
+        <div class="cardInfo">
+            <span class="cardInfoText">Game Name: </span>{{game.game}}
+            <span class="cardInfoText">Bundle: </span>{{game.bundle}}
+            <span class="cardInfoText">Owner: </span>{{game.owner}}
+        </div>
+        <div (click)="removeGame(game)" class="cardBtn">delete</div>
+    </div>
+    <p *ngIf="games.data.length==0" class="noFound">no records found</p>
+</div>

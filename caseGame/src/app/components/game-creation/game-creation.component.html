@@ -1,0 +1,11 @@
+<form #createGameForm="ngForm"  >
+    <div class="contentWrapper">
+        <div class="contentTitle">New Game</div>
+        <input class="contentInput" name="txtGame" type="text" #txtGame="ngModel" [(ngModel)]="newGame.game" placeholder="Game Name" />
+        <input class="contentInput" name="txtBundle" type="text"  #txtBundle="ngModel" [(ngModel)]="newGame.bundle" placeholder="Bundle" />
+        <input class="contentInput" name="txtOwner" type="text" #txtOwner="ngModel" [(ngModel)]="newGame.owner" placeholder="Owner" />
+        <input type="file" id="txtImg" name="txtImg" #txtImg="ngModel" [(ngModel)]="newGame.img" accept="image/png, image/jpeg" />
+        <div (click)="createGame()" class="submitBtn">save</div>
+        <div [routerLink]="['']" routerLinkActive="router-link-active"  class="submitBtn">Game List</div>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+.contentWrapper {
+    padding: 50px 120px 40px 250px;
+    width: 50%;
+}
+
+.contentWrapper .contentTitle {
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 25px;
+}
+
+.contentInput {
+    display: block;
+    height: 45px;
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border: solid 1px #dadada;
+    border-radius: 4px;
+}
+
+.submitBtn {
+    height: 35px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4fd5ad;
+    color: #d8f7ec;
+    border-radius: 50px;
+    font-size: 12px;
+    cursor: pointer;
+    float: right;
+}
