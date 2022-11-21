@@ -12,12 +12,13 @@ export class GameListComponent implements OnInit {
 
   constructor(private store: Store<Game>) { }
   games: any;
+  searchText:string;
 
   ngOnInit(): void {
     this.store.select("game").subscribe(game => {
       this.games  = game;
     });
-  }
+  } 
 
   removeGame(game: Game) {
     this.store.dispatch(removeGame(game));

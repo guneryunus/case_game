@@ -3,7 +3,7 @@ export class Game {
     game:string;
     bundle:string;
     owner:string;
-    img:string;
+    img:any;
 
     initNull():void{
         this.id=0;
@@ -11,5 +11,13 @@ export class Game {
         this.bundle="";
         this.owner="";
         this.img="";
+    }
+
+    initParameters(params:Game){
+        this.id=params.id;
+        this.game=params.game;
+        this.bundle=params.bundle;
+        this.owner=params.owner;
+        this.img=params.img;
     }
 }

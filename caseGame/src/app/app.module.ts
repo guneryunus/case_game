@@ -6,13 +6,17 @@ import { GameListComponent } from './components/game-list/game-list.component';
 import { GameCreationComponent } from './components/game-creation/game-creation.component';
 import { StoreModule } from '@ngrx/store';
 import { gameReducer } from './stateManagement/reducers/game.reducer';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameListComponent,
-    GameCreationComponent
+    GameCreationComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -22,6 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     }),
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@
 .contentInput {
     display: block;
     height: 45px;
-    width: 100%;
+    width: 97%;
     padding-left: 10px;
     margin-bottom: 20px;
     border: solid 1px #dadada;
@@ -31,4 +31,26 @@
     font-size: 12px;
     cursor: pointer;
     float: right;
+    border: unset;
+    margin-left: 7px;
+}
+
+.imgClass{
+    display: none;
+}
+
+.selectImg{
+    height: 35px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #45187f;
+    color: #d8f7ec;
+    border-radius: 50px;
+    font-size: 12px;
+    cursor: pointer;
+    float: left;
+    border: unset;
+
 }

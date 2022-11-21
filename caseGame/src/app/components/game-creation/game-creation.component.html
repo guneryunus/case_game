@@ -1,11 +1,23 @@
-<form #createGameForm="ngForm"  >
-    <div class="contentWrapper">
+<form  [formGroup]="registrationFormGroup" (ngSubmit)="onSubmit()">
+    <div class="contentWrapper" >
         <div class="contentTitle">New Game</div>
-        <input class="contentInput" name="txtGame" type="text" #txtGame="ngModel" [(ngModel)]="newGame.game" placeholder="Game Name" />
-        <input class="contentInput" name="txtBundle" type="text"  #txtBundle="ngModel" [(ngModel)]="newGame.bundle" placeholder="Bundle" />
-        <input class="contentInput" name="txtOwner" type="text" #txtOwner="ngModel" [(ngModel)]="newGame.owner" placeholder="Owner" />
-        <input type="file" id="txtImg" name="txtImg" #txtImg="ngModel" [(ngModel)]="newGame.img" accept="image/png, image/jpeg" />
-        <div (click)="createGame()" class="submitBtn">save</div>
-        <div [routerLink]="['']" routerLinkActive="router-link-active"  class="submitBtn">Game List</div>
+        <input class="contentInput" name="txtGame" type="text"  [(ngModel)]="newGame.game" placeholder="Game Name" 
+        formControlName="name" required/>
+        <span class="validation-error" *ngIf="(formSubmitted || registrationFormGroup.controls.name.touched) && registrationFormGroup.controls.name.errors?.required">Name is required</span>
+        <input class="contentInput" name="txtBundle" type="text"  formControlName="bundle" [(ngModel)]="newGame.bundle" placeholder="Bundle"
+        required/>
+        <span class="validation-error" *ngIf="(formSubmitted || registrationFormGroup.controls.bundle.touched)  && registrationFormGroup.controls.bundle.errors?.required || registrationFormGroup.controls.bundle.errors?.pattern ">Bundle is required or Should have Uppercase, lowercase, numbers & special characters</span>
+        <input class="contentInput" name="txtOwner" type="email" formControlName="email" [(ngModel)]="newGame.owner" placeholder="Owner" [email]="true" required />
+        <span class="validation-error" *ngIf="(formSubmitted || registrationFormGroup.controls.email.touched)  && registrationFormGroup.controls.email.errors?.required">Owner is required</span>
+        <span class="validation-error" *ngIf="(formSubmitted || registrationFormGroup.controls.email.touched)  && registrationFormGroup.controls.email.errors?.email">Please enter correct email format!</span><br>
+        <input type="file" id="txtImg" name="txtImg"  [(ngModel)]="newGame.img" accept="image/png, image/jpeg"
+         (change)="readUrl($event)" class="imgClass" formControlName="image" required />
+         <span class="validation-error" *ngIf="(formSubmitted || registrationFormGroup.controls.image.touched) && registrationFormGroup.controls.image.errors?.required">Image is required</span>
+         <div><label for="txtImg" class="selectImg" >Select Image</label></div>
+        <button type="submit" class="submitBtn" >save</button>
+        <div [routerLink]="['']"   routerLinkActive="router-link-active"  class="submitBtn">Game List</div>
+        <img *ngIf="newGame.img"[src]="newGame.img" width="190" height="100" >
     </div>
 </form>
+
+
